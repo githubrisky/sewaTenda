@@ -1,10 +1,10 @@
-<!-- <?php
-session_start();
-if (!isset($_SESSION['username'])) {
-    header("Location: login.php");
-    exit();
-}
-?> -->
+<!-- <?php 
+// session_start();
+// if (!isset($_SESSION['username'])) {
+// header("Location: login.php");
+// exit();
+// }
+// ?> -->
 <!DOCTYPE html>
 <html lang="id">
 
@@ -24,108 +24,14 @@ if (!isset($_SESSION['username'])) {
     <script src="https://unpkg.com/feather-icons"></script>
     <!-- css sendiri  -->
     <link rel="stylesheet" href="../assets/css/style.css" />
-     <!-- Midtrans Script -->
-     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-     data-client-key="SB-Mid-client-gTN69I8mNZY_k6MV"></script>
+    <!-- Midtrans Script -->
+    <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
+        data-client-key="SB-Mid-client-gTN69I8mNZY_k6MV"></script>
 </head>
 
 <body>
     <!-- NAVBAR START-->
-    <nav class="navbar navbar-expand-md bg-transparent fixed-top" x-data>
-        <div class="container">
-            <a class="navbar-brand" href="#">SewaTenda</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon bg-light"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">BERANDA</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">TENTANG KAMI</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#product">PRODUK</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">KONTAK</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="navbar-extra d-flex">
-                <a href="#" id="search-button"><i data-feather="search"></i></a>
-                <a href="#" id="shopping-cart-button">
-                    <i data-feather="shopping-cart"></i>
-                    <span class="quantity-notif" x-show="$store.cart.quantity" x-text="$store.cart.quantity"></span>
-                </a>
-                <a href="#" id="hamburger-menu"><i data-feather="menu"></i></a>
-            </div>
-            <a class="btn btn-primary me-2" href="#">Login</a>
-            <a class="btn btn-outline-light" href="#">Register</a>
-            <!-- Search Form start -->
-            <div class="search-form">
-                <input type="search" id="search-box" placeholder="search here..." />
-                <label for="search-box"><i data-feather="search"></i></label>
-            </div>
-            <!-- Search Form end -->
-
-            <!-- Shopping Cart start -->
-            <div class="shopping-cart">
-                <h3 x-show="$store.cart.items.length">Barang di Keranjangmu</h3>
-                <template x-for="(item, index) in $store.cart.items" x-key="index">
-                    <div class="cart-item">
-                        <img :src="`../assets/images/products/${item.img}`" :alt="item.name" />
-                        <div class="item-detail">
-                            <h3 x-text="item.name"></h3>
-                            <div class="item-price">
-                                <span x-text="rupiah(item.price)"></span> &times;
-                                <button id="remove" @click="$store.cart.remove(item.id)">&minus;</button>
-                                <span x-text="item.quantity"></span>
-                                <button id="add" @click="$store.cart.add(item)">&plus;</button>&equals;
-                                <span x-text="rupiah(item.total)"></span>
-                            </div>
-                        </div>
-                    </div>
-                </template>
-                <h4 x-show="!$store.cart.items.length" style="margin-top: 1rem">Keranjang Kosong, Sewa Sekarang</h4>
-                <h4 x-show="$store.cart.items.length">Total : <span x-text="rupiah($store.cart.total)"></span></h4>
-                <div class="form-container shadow rounded-3" x-show="$store.cart.items.length">
-                    <form action="" id="checkcoutForm">
-                        <input type="hidden" name="items" x-model="JSON.stringify($store.cart.items)">
-                        <input type="hidden" name="total" x-model="$store.cart.total">
-                        <h5 class="text-center">Customer Details</h5>
-                        <label for="name">
-                            <span>Name</span>
-                            <input type="text" name="name" id="name" class="form-control" />
-                        </label>
-
-                        <label for="email">
-                            <span>Email</span>
-                            <input type="text" name="email" id="email" class="form-control" />
-                        </label>
-
-                        <label for="phone">
-                            <span>No Telepon</span>
-                            <input type="number" name="phone" id="phone" autocomplete="off" class="form-control" />
-                        </label>
-                        <!-- <label for="date">
-                <span>Tanggal Pinjam</span>
-                <input type="date" name="date" id="date" class="form-control" />
-              </label>
-              <label for="date">
-                <span>Tanggal Kembali</span>
-                <input type="date" name="date" id="date" class="form-control" />
-              </label> -->
-                        <button class="checkout-button disabled" type="button" id="checkout-button"
-                            value="checkout">CheckOut</button>
-                    </form>
-                </div>
-            </div>
-            <!-- Shopping Cart end -->
-        </div>
-    </nav>
+    <?php include ('../components/navbar.php');?>
     <!-- HERO END -->
     <section id="hero" class="text-center">
         <div class="hero-image">
@@ -147,13 +53,18 @@ if (!isset($_SESSION['username'])) {
         <div class="about container">
             <h1 class="tagline">TENTANG KAMI</h1>
             <div class="content text-center mb-4">
-                <h3>Kenapa memilih Jasa kami?</h3>
+                <h3>Selamat datang di SewaTenda, penyedia solusi terbaik untuk kebutuhan camping Anda!</h3>
                 <p>
-                    SewaTenda adalah perusahaan penyedia jasa sewa alat camping yang berdiri sejak 2024. Kami
-                    berkomitmen untuk menyediakan alat camping berkualitas dan pelayanan terbaik bagi pelanggan. Tim
-                    kami terdiri dari pecinta alam yang berpengalaman dan profesional. Jika Anda ingin bergabung
-                    dengan
-                    tim SewaTenda atau menjadi mitra kami, silakan hubungi kami.
+                    Kami memahami pentingnya kenyamanan dan kepercayaan saat menjelajahi alam bebas. Oleh karena itu
+                    SewaTenda hadir dengan peralatan camping berkualitas tinggi, aman, dan terpercaya untuk menjadikan
+                    pengalaman outdoor Anda lebih menyenangkan dan tanpa khawatir.
+                </p>
+                <p>
+                    Dengan berbagai pilihan perlengkapan camping yang lengkap dan harga yang terjangkau, kami
+                    berkomitmen untuk memberikan pelayanan terbaik kepada pelanggan. Mulai dari tenda, matras, sleeping
+                    bag, hingga perlengkapan memasak, semua tersedia untuk memenuhi kebutuhan petualangan Anda.
+                    Mari ciptakan momen tak terlupakan bersama SewaTenda. Jadikan perjalanan camping Anda lebih seru dan
+                    praktis bersama kami!
                 </p>
             </div>
 
@@ -290,27 +201,9 @@ if (!isset($_SESSION['username'])) {
     <!-- KONTAK END -->
 
     <!-- FOOTER -->
-    <footer class="bg-primary text-white text-center py-3">
-        <div class="socials">
-            <a href="#"><i data-feather="instagram"></i></a>
-            <a href="#"><i data-feather="twitter"></i></a>
-            <a href="#"><i data-feather="facebook"></i></a>
-        </div>
 
-        <div class="links">
-            <a href="#">Beranda</a>
-            <a href="#about">Tentang Kami</a>
-            <a href="#product">Product</a>
-            <a href="#contact">Kontak</a>
-        </div>
-
-        <div class="credit">
-            <p>Created by <a href="">riskysaputro.id</a></p>
-        </div>
-        <h6>&copy; 2024 Kelompok 6 Punya. All Rights Reserved.</h6>
-    </footer>
+    <?php include ('../components/footer.php')?>
     <!-- FOOTER END -->
-    <!-- <?php include 'components/footer.php'?> -->
     <!-- Feather Icons -->
     <script>
     feather.replace();
@@ -325,8 +218,8 @@ if (!isset($_SESSION['username'])) {
     <!-- javascript eksternal -->
     <script src="../assets/js/script.js"></script>
     <!-- App JS -->
-    <script src="../src/app.js"></script>
-   
+    <script src="../js/app.js"></script>
+
 </body>
 
 </html>

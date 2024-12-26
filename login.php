@@ -1,11 +1,12 @@
 <?php
-// Koneksi database
-$host = "localhost";
-$user = "root";
-$pass = "";
-$dbname = "sewa-tenda";
+// // Koneksi database
+// $host = "localhost";
+// $user = "root";
+// $pass = "";
+// $dbname = "sewa-tenda";
 
-$conn = new mysqli($host, $user, $pass, $dbname);
+// $conn = new mysqli($host, $user, $pass, $dbname);
+include ('connect_db.php');
 
 // Cek koneksi
 if ($conn->connect_error) {
@@ -29,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if (password_verify($password, $row['password'])) {
             session_start();
             $_SESSION['username'] = $row['username']; // Simpan session
-            header("Location: index.html"); // Redirect ke halaman index.php
+            header("Location: src/index.php"); // Redirect ke halaman index.php
             exit();
         } else {
             echo "<div class='alert alert-danger'>Password salah!</div>";

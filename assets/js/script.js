@@ -9,6 +9,25 @@ document.addEventListener('scroll', function () {
 
 // nav
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Simulasi apakah user sudah login (gunakan data dari server untuk kasus nyata)
+  // Menggunakan PHP untuk menentukan status login
+const isLoggedIn = true; // Simulasi user sudah login
+  // Jika user sudah login, maka tampilkan tombol logout
+  if (isLoggedIn) {
+      const loginButton = document.querySelector('#loginButton'); // Tombol Login
+      const registerButton = document.querySelector('#registerButton'); // Tombol Register
+
+      if (loginButton) loginButton.style.display = 'none'; // Sembunyikan tombol login
+      if (registerButton) registerButton.style.display = 'none'; // Sembunyikan tombol register
+  }else {
+    // Jika user belum login, tampilkan tombol login dan register
+    if (loginButton) loginButton.style.display = 'block'; // Tampilkan tombol login
+    if (registerButton) registerButton.style.display = 'block'; // Tampilkan tombol register
+}
+  
+});
+
 // Container tempat bintang jatuh
 const starfall = document.getElementById('starfall');
 
