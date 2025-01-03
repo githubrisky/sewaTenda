@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="../assets/css/style.css" />
     <!-- Midtrans Script -->
     <script type="text/javascript" src="https://app.sandbox.midtrans.com/snap/snap.js"
-        data-client-key="SB-Mid-client-gTN69I8mNZY_k6MV"></script>
+        data-client-key="CLIENT-KEY-MIDTRANS"></script>
 </head>
 
 <body>
